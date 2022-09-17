@@ -1,0 +1,28 @@
+.popup_background_card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(117, 117, 117, 0.61);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.popup_for_edit_input {
+  position: fixed;
+  padding: 32px;
+  max-width: 500px;
+  max-height: 240px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.edit_buttons {
+  display: flex;
+}
