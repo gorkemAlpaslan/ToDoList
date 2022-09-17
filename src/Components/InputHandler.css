@@ -17,3 +17,7 @@
   height: 40px;
   border: none;
 }
+
+.input_form button {
+  height: 50px;
+}

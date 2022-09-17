@@ -5,7 +5,18 @@ import { FaBeer } from "react-icons/fa";
 import ConditionalPopUp from "./Components/ConditionalPopUp";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
+const Theme = document.getElementById("light");
+
 function App() {
+  const ChangeTheme = () => {
+    if (Theme.id == "light") {
+      Theme.id = "dark";
+      localStorage.setItem("Theme", Theme.id);
+    } else {
+      Theme.id = "light";
+      localStorage.setItem("Theme", Theme.id);
+    }
+  };
   const [todoList, SettodoList] = useState([]);
 
   const [popup, SetPopup] = useState({ display: false, title: "" });
@@ -117,6 +128,9 @@ function App() {
       ></ConditionalPopUp>
       <div className="Card">
         <div className="to_do_wrapper">
+          <button className="theme_change_button" onClick={ChangeTheme}>
+            Change Theme
+          </button>
           <div className="header_wraper">
             <h3 className="head">
               {JSON.parse(localStorage.getItem("isLoggedIn")) ? (
