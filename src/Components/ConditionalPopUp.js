@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import "./ConditionalPopUp.css";
 
 const ConditionalPopUp = (props) => {
@@ -65,11 +65,11 @@ const ConditionalPopUp = (props) => {
             className="popup_for_edit_input"
             onSubmit={(e) => {
               e.preventDefault();
-              if (props.display.title == "Sign Up") {
+              if (props.display.title === "Sign Up") {
                 SignUpHandler();
-              } else if (props.display.title == "Log In") {
+              } else if (props.display.title === "Log In") {
                 logInHandler();
-              } else if (props.display.title == "Edit") {
+              } else if (props.display.title === "Edit") {
                 EditToDoHandler();
               }
             }}

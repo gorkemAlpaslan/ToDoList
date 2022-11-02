@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import InputHandler from "./Components/InputHandler";
-import { FaBeer } from "react-icons/fa";
+
 import ConditionalPopUp from "./Components/ConditionalPopUp";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
@@ -9,7 +9,7 @@ const Theme = document.getElementById("light");
 
 function App() {
   const ChangeTheme = () => {
-    if (Theme.id == "light") {
+    if (Theme.id === "light") {
       Theme.id = "dark";
       localStorage.setItem("Theme", Theme.id);
     } else {
@@ -66,7 +66,7 @@ function App() {
       .then((result) => {
         let tempList = [];
         for (let item of result) {
-          if (item.isCompleted == true) {
+          if (item.isCompleted === true) {
             tempList.push(item);
           }
         }
@@ -80,7 +80,7 @@ function App() {
       .then((result) => {
         let tempList = [];
         for (let item of result) {
-          if (item.isCompleted == false) {
+          if (item.isCompleted === false) {
             tempList.push(item);
           }
         }
