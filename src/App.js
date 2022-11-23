@@ -41,7 +41,10 @@ function App() {
     const requestOptions = {
       method: event,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ Todo: todoInput }),
+      body: JSON.stringify({
+        Todo: todoInput,
+        User: JSON.parse(localStorage.getItem("isLoggedIn")),
+      }),
     };
 
     fetch("https://63232986a624bced3088ddc3.mockapi.io/todos", requestOptions)
@@ -186,42 +189,46 @@ function App() {
                 {todoList.length > 0 &&
                   todoList.map((eachtodo) => {
                     return (
-                      <li className="todo_list_item" key={eachtodo.id}>
-                        <div className="todo_title">
-                          <input
-                            type="checkbox"
-                            defaultChecked={eachtodo.isCompleted}
-                            onChange={() => {
-                              todoIsComplated(
-                                eachtodo.id,
-                                eachtodo.isCompleted
-                              );
-                            }}
-                            className="is_complate_checkbox"
-                          />
-                          <div>{eachtodo.Todo}</div>
-                        </div>
-                        <div className="todo_buttons">
-                          <div
-                            onClick={() => {
-                              SetPopup({
-                                display: true,
-                                title: "Edit",
-                                editId: eachtodo.id,
-                              });
-                            }}
-                          >
-                            <AiFillEdit></AiFillEdit>
+                      JSON.parse(localStorage.getItem("isLoggedIn")) &&
+                      eachtodo.User ===
+                        JSON.parse(localStorage.getItem("isLoggedIn")) && (
+                        <li className="todo_list_item" key={eachtodo.id}>
+                          <div className="todo_title">
+                            <input
+                              type="checkbox"
+                              defaultChecked={eachtodo.isCompleted}
+                              onChange={() => {
+                                todoIsComplated(
+                                  eachtodo.id,
+                                  eachtodo.isCompleted
+                                );
+                              }}
+                              className="is_complate_checkbox"
+                            />
+                            <div>{eachtodo.Todo}</div>
                           </div>
-                          <div
-                            onClick={() => {
-                              deleteToDoHandler(eachtodo.id);
-                            }}
-                          >
-                            <AiFillDelete></AiFillDelete>
+                          <div className="todo_buttons">
+                            <div
+                              onClick={() => {
+                                SetPopup({
+                                  display: true,
+                                  title: "Edit",
+                                  editId: eachtodo.id,
+                                });
+                              }}
+                            >
+                              <AiFillEdit></AiFillEdit>
+                            </div>
+                            <div
+                              onClick={() => {
+                                deleteToDoHandler(eachtodo.id);
+                              }}
+                            >
+                              <AiFillDelete></AiFillDelete>
+                            </div>
                           </div>
-                        </div>
-                      </li>
+                        </li>
+                      )
                     );
                   })}
               </div>

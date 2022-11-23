@@ -33,22 +33,19 @@ button:active {
 }
 
 .Card {
-  min-height: 1000px;
+  height: 100vh;
   background-color: #eee3cb;
   display: flex;
   justify-content: center;
+  overflow: scroll;
 }
 
 .to_do_wrapper {
   position: relative;
   margin: 100px;
-  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-  width: 1600px;
-  min-height: 870px;
 }
 
 .theme_change_button {

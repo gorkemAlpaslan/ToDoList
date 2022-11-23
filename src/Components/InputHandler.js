@@ -6,14 +6,20 @@ const InputHandler = (props) => {
 
   const todoAdd = (e) => {
     e.preventDefault();
-    if (inputHandler.current.value.length >= 3) {
+    if (
+      inputHandler.current.value.length >= 3 &&
+      JSON.parse(localStorage.getItem("isLoggedIn"))
+    ) {
       props.todoAddHandler(inputHandler.current.value);
       inputHandler.current.value = "";
       inputHandler.current.placeholder = "";
-    } else {
+    } else if (inputHandler.current.value.length < 3) {
       inputHandler.current.value = "";
       inputHandler.current.placeholder =
         "To do should contains at least 3 letters";
+    } else if (JSON.parse(localStorage.getItem("isLoggedIn")) === false) {
+      inputHandler.current.value = "";
+      inputHandler.current.placeholder = "Please Log In first";
     }
   };
 
