@@ -1,9 +1,22 @@
-## ToDoList
-ToDoList is a simple React.js application that allows users to create and manage their to-do lists. Users can add new tasks, mark tasks as completed, and delete tasks.
+# ToDoList
 
-## Website
-ToDoList is hosted live on the following website:
-https://enchanting-tapioca-2145c3.netlify.app/
+A task management application built with **React 18** to create, complete, and delete daily tasks.
 
+## Live Demo
+- [View Deployed App](https://enchanting-tapioca-2145c3.netlify.app/)
 
-Please note that this project is made for my personal portfolio and it was developed using React.js. However, I would like to note that this is one of my earlier projects, so it may not fully reflect my current level of skills and knowledge. Additionally, the project uses a mock API for a basic and improper authentication system and it was my first project where I utilized HTTP requests.
+## Features
+- Add, toggle completion, and remove tasks
+- Clean component-based React structure with conditional modals/popups
+
+## Tech Stack
+- **React 18** & **React Icons**
+- **CSS3**
+
+## Getting Started
+```bash
+git clone https://github.com/gorkemAlpaslan/ToDoList.git
+cd ToDoList
+npm install
+npm start
+```
